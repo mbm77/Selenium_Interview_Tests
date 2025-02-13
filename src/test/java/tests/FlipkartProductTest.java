@@ -36,7 +36,7 @@ public class FlipkartProductTest {
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 		capabilities.setBrowserName("chrome");
 		
-		WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444"),capabilities);
+		WebDriver driver = new RemoteWebDriver(new URL("http://chrome:4444"),capabilities);
 		driver.manage().window().maximize();
 		
 		driver.get("https://www.flipkart.com/");
