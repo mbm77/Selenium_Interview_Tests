@@ -5,7 +5,7 @@
 	<groupId>SeleniumCourse</groupId>
 	<artifactId>SeleniumCourse</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>SeleniumCourse</name>
+	<name>Selenium_Interview_Tests</name>
 	<description>SeleniumCourse</description>
 	<build>
 		<pluginManagement>
@@ -28,10 +28,6 @@
 						<suiteXmlFiles>
 							<suiteXmlFile>testng.xml</suiteXmlFile>
 						</suiteXmlFiles>
-
-						<systemPropertyVariables>
-							<browser>${Browser}</browser>
-						</systemPropertyVariables>
 					</configuration>
 				</plugin>
 			</plugins>
@@ -89,6 +85,11 @@
 			<groupId>com.google.zxing</groupId>
 			<artifactId>javase</artifactId>
 			<version>3.5.3</version>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.20</version>
 		</dependency>
 
 

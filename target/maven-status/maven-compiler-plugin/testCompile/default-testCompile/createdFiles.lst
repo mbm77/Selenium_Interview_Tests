@@ -1,8 +1,10 @@
+tests\FlipkartProductTest.class
+tests\ReadTextFromBarcodeTest.class
+tests\MaxHealthcareTest.class
 tests\MyntraTest.class
 tests\ETMoneyTest.class
-tests\FlipkartProductTest.class
+tests\ExecutesTestsInDocker.class
 tests\DataProviderTest.class
-tests\ReadTextFromBarcodeTest.class
 tests\ScrollUpDemo.class
-tests\MaxHealthcareTest.class
+tests\WaitForWindows.class
 tests\NDTVWeatherTest.class

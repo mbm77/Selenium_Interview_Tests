@@ -26,8 +26,6 @@ import org.testng.annotations.Test;
 
 import com.google.common.util.concurrent.Uninterruptibles;
 
-import reports.ExtentReport;
-
 public class FlipkartProductTest {
 	
 
@@ -42,7 +40,6 @@ public class FlipkartProductTest {
 		driver.manage().window().maximize();
 		
 		driver.get("https://www.flipkart.com/");
-		ExtentReport.extentTestLog("Flipkart Application is open");
 		WebElement search = driver.findElement(By.name("q"));
 		String product = "fridge";
 		for (int i = 0; i < product.length(); i++) {
@@ -50,7 +47,6 @@ public class FlipkartProductTest {
 			String strChar = sb.append(product.charAt(i)).toString();
 			search.sendKeys(strChar);
 		}
-		ExtentReport.extentTestLog("fridge is enter into search");
 		 Uninterruptibles.sleepUninterruptibly(Duration.ofSeconds(5));
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
@@ -63,7 +59,6 @@ public class FlipkartProductTest {
 			System.out.println(productName);
 			if (productName.contains("fridge in Refrigerators") || productName.contains("fridge 5 stars in Refrigerators")) {
 				js.executeScript("arguments[0].click()", pro);
-				 ExtentReport.extentTestLog("clicked on fridge single door");
 				break;
 			} 
 		}
@@ -72,7 +67,6 @@ public class FlipkartProductTest {
 		 
 		WebElement firstOption = driver.findElement(By.xpath("(//div[@style='height: 200px; width: 200px;']/img)[1]"));
 		actions.moveToElement(firstOption).click().perform();
-		ExtentReport.extentTestLog("clicked on product");
 		Uninterruptibles.sleepUninterruptibly(Duration.ofSeconds(5));
 		String parentWin = driver.getWindowHandle();
 		Set<String> windowHandles = driver.getWindowHandles();
@@ -82,11 +76,9 @@ public class FlipkartProductTest {
 				driver.switchTo().window(win);
 				WebElement pincode = driver.findElement(By.id("pincodeInputId"));
 				pincode.sendKeys("110092");
-				ExtentReport.extentTestLog("Pinode is entered");
 				driver.findElement(By.xpath("//span[text()='Check']")).click();
 				Uninterruptibles.sleepUninterruptibly(Duration.ofSeconds(3));
 				driver.close();
-				ExtentReport.extentTestLog("child window is closed");
 			}
 		}
 
@@ -95,13 +87,10 @@ public class FlipkartProductTest {
 		Uninterruptibles.sleepUninterruptibly(Duration.ofSeconds(3));
 		WebElement brand = driver.findElement(By.xpath("//div[@title='SAMSUNG']//input[@type='checkbox']"));
 		actions.moveToElement(brand).click().build().perform();
-		ExtentReport.extentTestLog("clicked on brand");
 		Uninterruptibles.sleepUninterruptibly(Duration.ofSeconds(2));
 		driver.findElement(By.xpath("//div[text()='Capacity']")).click();
-		ExtentReport.extentTestLog("clicked on Capacity Toggle Button");
 		WebElement capacity = driver.findElement(By.xpath("//div[text()='301 - 400 L']/preceding-sibling::input"));
 		actions.moveToElement(capacity).click().build().perform();
-		ExtentReport.extentTestLog("clicked on Capacity Value");
 		Uninterruptibles.sleepUninterruptibly(Duration.ofSeconds(2));
 		String resultStr = driver.findElement(By.xpath("//span[contains(text(),'Showing')]")).getText();
 		String totalProductsStr = resultStr.substring(resultStr.lastIndexOf("of") + 3,
